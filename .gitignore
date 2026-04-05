@@ -1,0 +1,14 @@
+data/
+*.csv
+*.zip
+*.xlsx
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.env
+*.pkl
+*.h5
+.DS_Store
+Thumbs.db
+.vscode/
