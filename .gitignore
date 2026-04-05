@@ -12,3 +12,5 @@ venv/
 .DS_Store
 Thumbs.db
 .vscode/
+anaconda_projects/
+*.db
