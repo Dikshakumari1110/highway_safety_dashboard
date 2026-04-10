@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -15,25 +16,26 @@ st.set_page_config(
     layout="wide"
 )
 
+# Base path
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(BASE_PATH, 'data')
+
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv('data/cleaned_accident_data.csv')
-    return df
+    return pd.read_csv(os.path.join(DATA_PATH, 'cleaned_accident_data.csv'))
 
 # Load model
 @st.cache_resource
 def load_model():
-    with open('data/best_model.pkl', 'rb') as f:
-        model = pickle.load(f)
-    return model
+    with open(os.path.join(DATA_PATH, 'best_model.pkl'), 'rb') as f:
+        return pickle.load(f)
 
 # Load encoders
 @st.cache_resource
 def load_encoders():
-    with open('data/encoders.pkl', 'rb') as f:
-        encoders = pickle.load(f)
-    return encoders
+    with open(os.path.join(DATA_PATH, 'encoders.pkl'), 'rb') as f:
+        return pickle.load(f)
 
 df = load_data()
 model = load_model()
