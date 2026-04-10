@@ -18,20 +18,20 @@ st.set_page_config(
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv('../data/cleaned_accident_data.csv')
+    df = pd.read_csv('data/cleaned_accident_data.csv')
     return df
 
 # Load model
 @st.cache_resource
 def load_model():
-    with open('../data/best_model.pkl', 'rb') as f:
+    with open('data/best_model.pkl', 'rb') as f:
         model = pickle.load(f)
     return model
 
 # Load encoders
 @st.cache_resource
 def load_encoders():
-    with open('../data/encoders.pkl', 'rb') as f:
+    with open('data/encoders.pkl', 'rb') as f:
         encoders = pickle.load(f)
     return encoders
 
