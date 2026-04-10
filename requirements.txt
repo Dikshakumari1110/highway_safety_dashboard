@@ -6,4 +6,3 @@ plotly
 scikit-learn
 xgboost
 streamlit
-pickle5
